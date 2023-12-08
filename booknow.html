@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>BOOK NOW</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <header>
+        <!--logo-->
+        <section id="logo">
+            <a  href="./home.html"><img src="./logo.png" alt="logo" ></a>
+        </section>
+       
+        <!--navigation bar-->
+        <nav>
+            <ul>
+                <li> <a href="./home.html">HOME</a></li>
+                <li> <a href="./hotels.html">HOTELS</a></li>
+                <li> <a href="./dining.html">DINING</a></li>
+                <li><a href="leisure.html">ADVENTURE</a></li>
+                <li> <a href="#">WEDDING & CONFERENCE</a>
+                    <ul class="dropdown">
+                        <li><a href="./wedding.html">WEDDING</a></li>
+                        <li><a href="./conference.html">CONFERENCE</a></li>
+                    </ul>
+                </li>
+                <li><a href="./accomadation.html">ACCOMMODATION</a></li>
+                <li><a href="./gallery.html">GALLERY</a></li>
+                <li><a href="./booknow.html"><button>BOOK NOW</button></a></li>
+                <li><button type="submit" id="Favourite">ADD TO FAVOURITE</button></li>
+                <li><button type="submit" id="checkfavourite">CHECK YOUR FAVOURITES</button></li>
+                
+
+            </ul>
+            
+           
+        </nav>
+    </header>
+    <section id="backgroundimage">
+        <img src="./book now main image.jpg" alt="hotel image">
+    </section>
+   <!--form to book rooms-->
+   <section class="form">
+    <section class="book-room">
+        <h1>Book Your Stay</h1>
+        
+        <form action="#" method="get" id="roomsBooking">
+            <p>
+                <label for="name">Full Name : </label><br>
+                <input type="text" name="name" id="name" placeholder="First Name last Name" required>
+            </p>
+            <p>
+                <label for="telephone">Contact Number : </label>
+                <input type="text" name="telephone" id="telephone" placeholder="Contact Number" required>
+            </p>
+            <p>
+                <label for="email">Email :</label><br>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </p>
+            <p>
+                <label for="checkin">Checkin :</label>
+                <input type="date" name="checkin" id="checkin"  required >
+
+            </p>
+            <p>
+                <label for="checkout">checkout :</label>
+                <input type="date" name="checkout" id="checkout"  required>
+
+            </p>
+            <fieldset>
+                <legend>Single Room Booking</legend>
+                <h3>Price per room - 25,000LKR</h3>
+                <p>
+                    <label for="noofroomsingle">Number of Rooms :</label>
+                    <input type="number" name="noofroomsingle" id="noofroomsingle" min="0" value="0">
+                </p>
+               
+                
+            </fieldset>
+            <fieldset>
+                <legend>Double Room Booking</legend>
+                <h3>Price per room - 35,000LKR</h3>
+                <p>
+                    <label for="noofroomdouble">Number of Rooms :</label>
+                    <input type="number" name="noofroomdouble" id="noofroomdouble" min="0" value="0">
+                </p>
+               
+              
+            </fieldset>
+            <fieldset>
+                <legend>Triple Room Booking</legend>
+                <h3>Price per room - 40,000LKR</h3>
+                <p>
+                    <label for="noofroomtriple">Number of Rooms :</label>
+                    <input type="number" name="noofroomtriple" id="noofroomtriple" min="0" value="0">
+                </p>
+               
+             
+            </fieldset>
+            <fieldset>
+                <legend>Extra Requirements</legend>
+                <p>
+                    
+                    <label for="wifi" >WiFi</label>
+                    <input type="checkbox" id="wifi" name="extra" value="wifi">
+                    <label for="pool" >Pool View</label>
+                    <input type="checkbox" id="pool" name="extra" value="pool">
+                    <label for="garden" >Garden View</label>
+                    <input type="checkbox" id="garden" name="extra" value="garden">
+                </p>
+            </fieldset>
+            
+            
+            <p>
+                <label for="adultroom">Number of Adult :</label>
+                <input type="number" name="adultroom" id="adultroom" value="0" min="0" required>
+            </p>
+            <p>
+                <label for="childroom">Number of Children above 5 year of age :</label>
+                <input type="number" name="childroom" id="childroom" value="0" min="0">
+            </p>
+            <p>
+                <label for="bedextra">Number of extra beds (if required) :</label>
+                <input type="number" name="bedextra" id="bedextra" value="0" min="0">
+
+            </p>
+            <p>
+                <label for="promocode">Promo code</label>
+                <input type="text" name="promocode" id="promocode" value="">
+            </p>
+            <fieldset>
+                <div class="current-booking-container">
+                    <div id="currentcost"></div>
+                </div>
+            </fieldset>
+
+            <button type="submit" id="bookroom">BOOK NOW</button>
+            <button type="submit" id="loyal">CHECK LOYALTY</button>
+
+        </form>
+    </section>   
+</section>
+<!--over all booking table for rooms booking-->
+
+<section class="room-tables">
+    <h1>Overall Room Booking Details</h1>
+     <table class="roomoverall">
+        <thead>
+            <tr>
+                <th>Room Requirements</th>
+                <th>Room Details</th>
+                
+                
+                </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td >Name</td>
+                <td id="nametable"></td>
+
+            </tr>
+            <tr>
+                <td>No Of Single Room</td>
+                <td id="singletable"></td>
+                
+            </tr>
+            <tr>
+                <td>No Of Double Room</td>
+                <td id="doubletable"></td>
+               
+            </tr>
+            <tr>
+                <td>No Of Triple Room</td>
+                <td id="tripleTable"></td>
+                
+            </tr>
+            <tr>
+                <td>Total Rooms</td>
+                <td id="totalroomtable"></td>
+                
+            </tr>
+            <tr>
+                <td>Total Days</td>
+                <td id="totaldaystable"></td>
+                
+            </tr>
+            <tr>
+                <td>Total Cost</td>
+                <td id="costtable"></td>
+                
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" align="Center">Information Of Room Booking</td>
+                </tr>
+            </tfoot>
+        </table>    
+</section>
+
+
+
+
+
+
+
+
+
+<!--form  for adventures-->
+<section class="form">
+    <section class="book-room">
+        <h1>Reserve A Ticket</h1>
+        <form action="#" method="get" id="adventurebooking">
+            <p>
+                <label for="nameadventure">Full Name : </label><br>
+                <input type="text" name="nameadventure" id="nameadventure" placeholder="First Name last Name" required>
+            </p>
+            <p>
+                <label for="telephoneadventure">Contact Number : </label>
+                <input type="text" name="telephoneadventure" id="telephoneadventure" placeholder="Contact Number" required>
+            </p>
+            <p>
+                <label for="games">Select Adventure :</label>
+                <select name="games" id="games">
+                    <option value="Diving" selected>Diving</option>
+                    
+                    
+                </select>
+            </p>
+           
+            <fieldset>
+                <legend>Booking For Resident (Local)</legend>
+                <h3>Price per adult - 5000LKR</h3>
+                <h3>Price per child - 2000LKR</h3>
+                <p>
+                    <label for="adultcount">Number of Adults :</label>
+                    <input type="number" name="adultcount" id="adultcount" min="0" value="0">
+                </p>
+                <p>
+                    <label for="childcount">Number of Children above 5 year of age :</label>
+                    <input type="number" name="childcount" id="childcount" min="0" value="0">
+                </p>
+                <p>
+                    <label for="Timeperiod">Time period :</label>
+                    <input type="number" name="Timeperiod" id="Timeperiod" min="0" value="0">
+
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Booking For Non-Resident (Foreign)</legend>
+                <h3>Price per adult - 10,000LKR</h3>
+                <h3>Price per child - 5000LKR</h3>
+                <p>
+                    <label for="adultcountforiegn">Number of Adults :</label>
+                    <input type="number" name="adultcountforiegn" id="adultcountforiegn" min="0" value="0">
+                </p>
+                <p>
+                    <label for="childcountforiegn">Number of Children above 5 year of age :</label>
+                    <input type="number" name="childcountforiegn" id="childcountforiegn" min="0" value="0">
+                </p>
+                <p>
+                    <label for="Timeperiodforiegn">Time period :</label>
+                    <input type="number" name="Timeperiodforiegn" id="Timeperiodforiegn" min="0" value="0">
+
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Guide</legend>
+                <p>
+                    <label for="guideadult" >Guide For Adults</label>
+                    <input type="checkbox" id="guideadult" name="guide" value="guideadult">
+                    <label for="guidechild" >Guide For Kids</label>
+                    <input type="checkbox" id="guidechild" name="guide" value="guidechild">
+                    
+                    
+                </p>
+            </fieldset>
+          
+            <fieldset>
+                <div class="current-diving-container">
+                    <div id="currentcostdiving"></div>
+                </div>
+                
+            </fieldset>
+            
+
+            
+
+           
+            <button type="submit" id="bookadventure">BOOK ADVENTURE</button>
+            
+        </form>
+    </section>
+    
+    
+</section>
+
+
+<script src="./book.js"></script>
+
+
+
+     
+
+
+
+     
+
+    
+      <!--Link to go to top-->
+      <section class="top">
+        <a href="#logo"><button>GO TO TOP</button></a>
+     </section>
+    
+         <!--footer-->
+         <footer>
+            <ul class="footer-content">
+                <!--location information-->
+                <li>
+                    <h2>ADDRESS</h2>
+                    <p>JETWING LIGHTHOUSE,<br>
+                        433 A, DADELLA,<br>
+                        GALLE,<br>
+                        SRI LANKA</p>
+                    <a href="https://goo.gl/maps/7uwatk6pfpVovtMP7">SITE MAP</a>
+                </li>
+                <br>
+                 <!--contact information-->
+                <li>
+                    <h2>CONTACT DETAILS</h2>
+                    <p>
+                        TELEPHONE : +94 91 2223744 <br>
+                        RESERVATIONS : +94 114 709 400 <br>
+                        FAX : +94 11 2345729 <br>
+                        EMAIL : RESV.LIGHTHOUSE@JETWINGHOTELS.COM
+                    </p>
+                </li>
+                <br>
+                <!--opening hours-->
+                <li>
+                    <h2> OPERATING HOURS (RESERVATIONS)</h2>
+                    <p>
+                        MON - FRI - 9AM TO 6PM <br>
+                        SAT - 9AM TO 6PM <br>
+                        SUN - 9AM TO 2PM <br>
+                        PUBLIC HOLIDAYS - 9AM TO 6PM
+                    </p>      
+                </li>
+                
+            </ul>
+            <!--socialmedia pages-->
+            <section class="footer-details">
+                <section class="socials">
+                    <h2>FIND US ON:</h2>
+                    <a href="https://www.facebook.com/JetwingLighthouse/?ref=br_rs"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fjetwinghotels%2F"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/jetwing.lighthouse/"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/user/jetwinghotels"><i class="fa fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/jetwinghotels/"><i class="fa fa-linkedin"></i></a>
+                </section>
+            </section>
+            <section class="footer-bottom">
+                <p>All Right Reserved © Jetwing Hotels</p>
+            </section>
+    
+        </footer>
+   
+    
+    
+</body>
+</html>

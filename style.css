@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Open+Sans:wght@300&family=Poppins:wght@300;800&family=Raleway:wght@100&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+body {
+    overflow-x: hidden;
+}
+
+    
+    
+
+header{
+    background:white ;
+    width: 100%;
+    height: 82px;
+    
+    
+    border-bottom: 1px solid white;
+
+}
+header nav {
+    float: right;
+    font-family:'open sans',Arial, Helvetica, sans-serif;
+    display: block;
+  
+    font-size: 13px;
+    margin-top: 10px;
+    margin-right: 10px;
+    
+}
+header nav ul{
+    float: right;
+    list-style: none;
+}
+header nav ul li{
+    display: inline-block;
+    position: relative;
+
+
+}
+header nav ul li a{
+    color:black;
+    text-decoration: none;
+    padding: 8px 7px;
+    margin-right: 1px;
+    border-bottom: 8px solid white;
+    font-weight: bold;
+    display: block; 
+    text-align: center;    
+}
+
+
+header nav ul li ul .dropdown li{
+    display: block;
+    width: 100%;
+    
+}
+header nav ul li ul.dropdown{
+    width: 100%;
+    position: absolute;
+    display: none;
+    background: white;
+   
+}
+
+header nav a:hover{
+    background-color: rgb(245, 240, 240);
+    width: 100%;
+       
+}
+header nav ul li:hover ul.dropdown{
+    display: block;
+}
+header nav ul li a button{
+    height: 40px;
+    color: rgb(235, 235, 243);
+    background-color: rgb(17, 17, 65);
+    width: 120px;
+    
+    
+    
+}
+
+header nav ul  button{
+    height: 48px;
+    color: rgb(235, 235, 243);
+    background-color: rgb(187, 60, 70);
+    width: 125px;
+    border: #e7f2f4;
+    
+    
+    
+}
+header nav ul  button:hover{
+    background-color: rgb(136, 33, 40);
+    
+
+}
+
+/* hotel logo*/
+#logo{
+    float: left;
+    display: block;
+}
+#logo img{
+    width: 280px;
+  
+}
+#backgroundimage img{
+    width: 100%;
+    background-size: cover;
+}
+/* go to top*/
+.top button{
+    height: 30px;
+    color: rgb(245, 243, 243);
+    background-color: rgb(35, 35, 75);
+    width: 120px;
+    margin:2% 0% 2% 5%;
+    padding: 0.5%;
+    border-radius: 5px;
+    
+
+}
+/* footer*/
+footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    padding:2%;
+    color:#fff;
+    background-color: #753a3a;
+    font-family:'montessarat',Arial, Helvetica, sans-serif ;
+    
+}
+.footer-details{
+    margin: 0 0rem 2rem 0;
+}
+footer ul{
+    list-style: none;
+    padding:0% 4% 0% 4%;
+    margin: 0% 2% 0% 2%;
+}
+footer li{
+    line-height: 2em;
+    padding-right: 45px;
+   
+    float: left;
+
+}
+footer a{
+    text-decoration: none;
+}
+.footer-content{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 12px;
+
+}
+.footer-content h2{
+    font-size: 14px;
+}
+.footer-details h2{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4%;
+}
+.footer-content a{
+    color: #fff;
+    border-bottom: 1px solid bisque;
+    font-size: 15px;
+    font-weight: bolder;
+
+}
+
+.footer-bottom p{
+    text-align: center;
+    padding: 10px 0px 2px 500px;
+    
+}
+
+.socials a{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+    background:#724d4d;
+}
+.socials a i{
+    color: #e7f2f4;
+    padding: 10px 12px;
+    font-size: 20px;
+    
+}
+
+
+
+
+
+/* BOOK NOW PAGE*/
+
+.form{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 50px;
+    background-color: #f4f4f4;
+    
+
+}
+.book-room{
+    background: white;
+    margin: 0% 5% 6% 30%;
+    border-radius: 15px;
+    width: 45%;
+    
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-room h1{
+    margin: 0%;
+    padding: 0%;
+    color:#753a3a;
+    font-size: 4rem;
+    font-family:'open sans',Arial, Helvetica, sans-serif;
+    
+    text-align: center;
+    
+
+
+}
+
+.book-room label {
+    
+    margin-bottom: 0%;
+   
+    font-weight: 425;
+     
+    font-size: 1.05rem;
+   
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+    
+}
+#wifi{
+    font-size: 1rem;
+    padding: 0.5%;
+    width: 10%;
+    outline: none;
+    margin-left: 0%;
+
+}
+#pool{
+    font-size: 1rem;
+    padding: 0.5%;
+    width: 10%;
+    outline: none;
+    margin-left: 0%;
+
+}
+#garden{
+    font-size: 1rem;
+    padding: 0.5%;
+    width: 10%;
+    outline: none;
+    margin-left: 0%;
+
+}
+#guideadult{
+    font-size: 1rem;
+    padding: 0.5%;
+    width: 10%;
+    outline: none;
+    margin-left: 0%;
+
+}
+#guidechild{
+    font-size: 1rem;
+    padding: 0.5%;
+    width: 10%;
+    outline: none;
+    margin-left: 0%;
+
+}
+
+
+
+.book-room input,
+.book-room select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 2.5%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.book-room h3{
+    color:#753a3a;
+    margin-bottom: 5%;
+}
+
+
+fieldset {
+    margin:0% 0% 2% 0%;
+    border: 1px solid #ccc;
+    padding:25px 12px  25px 12px;
+    border-radius: 4px;
+    
+}
+
+legend {
+    font-weight: bold;
+    color: #333;
+    opacity: 70%;
+    font-size:18px;
+   
+}
+
+#bookroom, #loyal, #bookadventure{
+    background-color: #271f58;
+    color: #fff;
+    padding: 12px 18px;
+    margin: 0% 5% 3% 15%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#bookroom:hover {
+    background-color: rgb(15, 126, 163);
+}
+#bookadventure:hover {
+    background-color: rgb(15, 126, 163);
+}
+#loyal:hover {
+    background-color: rgb(15, 126, 163);
+}
+
+.current-booking-container {
+    margin-top: 20px;
+}
+.current-diving-container{
+    margin-top: 20px;
+
+}
+#currentcostdiving{
+    font-size: 18px;
+    font-weight: 425;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif ;
+    line-height: 140%;
+
+}
+
+
+#currentcost {
+    font-size: 18px;
+    font-weight: 425;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif ;
+    line-height: 140%;
+    
+}
+.room-tables{
+    margin: 4% 0% 0% 2%;
+}
+.room-tables h1{
+    font-family: 'montessarat',Arial, Helvetica, sans-serif;
+    font-size: 28px;
+
+}
+.roomoverall{
+    border-collapse: collapse;
+    margin: 2%;
+    font-size: 0.9em;
+    width: 95%;
+    border-radius: 5px 5px 0 0;
+    font-family:'montessarat',Arial, Helvetica, sans-serif ;
+}
+.roomoverall thead tr{
+    background-color: rgb(73, 73, 119);
+    color: white;
+    text-align: left;
+    font-weight: bold;   
+}
+.roomoverall th, .roomoverall td{
+    padding: 1%;
+}
+.roomoverall tbody tr{
+    border-bottom: 1px solid rgb(241, 234, 234);
+}
+.roomoverall tfoot  td{
+    padding: 1%;
+    border-bottom: 1px solid rgb(241, 234, 234);
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 85%;
+}
+/** media query as required for the adjustments**/
+
+  
+@media screen and (max-width:450px) {
+    header nav ul{
+        float: left;
+        margin-left: 5%;
+    }
+    header nav ul li a{
+        padding: 5px 15px;
+        font-size: 15px;
+        display: block;
+    }
+    header nav ul li ul.dropdown{
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        background: white;
+    }
+    
+    header nav ul li:hover ul.dropdown{
+        display: block;}
+
+    #logo img{
+        max-width: 150pt;
+        margin-left: 15%;
+        
+    }
+    #backgroundimage img{
+        height: 150px;
+        width: 100%;
+     }
+     #lighthouselogo{
+         margin: 0%;
+         padding: 0%;
+     }
+     #lighthouselogo img{
+         width: 50%;
+         padding-left: 0%;
+         margin-left: 15%;
+             
+     }
+ 
+   
+
+
+
+    /*book now*/
+    .form{
+        width:100%;
+    }
+    .book-room {
+        width: 100%;
+        margin: 0% 1% 6% 2%;
+    }
+    .book-room h1{
+        font-size: 35px;
+    }
+    .room-tables{
+        margin-left: 10%;
+    }
+    .top button{
+        margin-left: 10%;
+    }
+
+}
+
+
+   
+
+@media screen and (min-width:450px)and (max-width:600px){
+    header nav ul{
+        float: left;
+    }
+    header nav ul li a{
+        padding: 5px 15px;
+        font-size: 15px;
+        display: block;
+    }
+    header nav ul li ul.dropdown{
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        background: white;
+    }
+    
+    header nav ul li:hover ul.dropdown{
+        display: block;}
+
+    #backgroundimage img{
+        max-height: 150px;
+        width: 100%;
+
+    }
+    #lighthouselogo{
+        margin: 0%;
+        padding: 0%;
+
+    }
+    #lighthouselogo img{
+        max-width:60%;
+        margin-left:15% ;
+    }
+   
+
+    /*book now page*/
+    .book-room {
+        width: 90%;
+        margin: 0% 5% 6% 3%;
+        
+    }
+    .form{
+        width: 100%;
+    }
+    
+}
+@media screen and (min-width:600px)and (max-width:800px){
+    header nav{
+        width: 600px;
+    }
+    header nav ul{
+        float: left;
+    }
+    header nav ul li a{
+        padding: 5px 15px;
+        font-size: 15px;
+        display: block;
+    }
+    header nav ul li ul.dropdown{
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        background: white;
+    }
+    
+    #backgroundimage img{
+        max-height: 150px;
+        width: 100%;
+    }
+    #lighthouselogo{
+        margin: 0%;
+        padding: 0%;
+
+    }
+    #lighthouselogo img{
+        max-width:60%;
+        margin-left:10% ;
+    }
+   
+}
+
+@media screen and (min-width:800px)and (max-width:1200px){
+    header nav{
+        width: 600px;
+    }
+    header nav ul{
+        float: left;
+    }
+    header nav ul li a{
+        padding: 5px 10px;
+        font-size: 15px;
+        display: block;
+    }
+    header nav ul li ul.dropdown{
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        background: white;
+    }
+    
+    #backgroundimage img{
+        max-height: 250px;
+    }
+    #lighthouselogo{
+        margin: 0%;
+        padding: 0%;
+
+    }
+    #lighthouselogo img{
+        max-width:60%;
+        margin-left:10% ;
+    }
+   
+   
+}
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
