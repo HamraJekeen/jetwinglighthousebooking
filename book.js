@@ -70,8 +70,9 @@ function updateOverallBookingDetails() {
     // Update the cost table
     document.getElementById("costtable").textContent = roomCost+" LKR";
 
-    alert(`Your booking successfully done,
-    \t Thank You For Booking With us! `);
+    
+
+   
 
     
 
@@ -99,48 +100,14 @@ function saveLoyaltyPointsToLocal(points) {
     localStorage.setItem('loyaltyPoints', points.toString());
 }
 
-
-
-
-
-
-
-
-
-btnRoom.addEventListener("click", updateoverAllRoomTable);
-
-function updateoverAllRoomTable(event) {
-    // Prevent the form from submitting and page reloading
-    event.preventDefault();
+ 
   
 
-    // Check if the form is valid
-    if (roomElement.checkValidity()) {
-        // Calculate the room cost and update the current room booking
-        calculateRoomCost();
-        updateCurrentRoomBooking();
-        
-
-
-        // Update the overall booking details
-        updateOverallBookingDetails();
-        
-        
-
-        // Clear the form
-        roomElement.reset();
-
-        txtroomCost.innerHTML = '';
-
-        
-
-        
-
-    }
-}
 
 
 function calculateRoomCost(){
+
+    
     let totalSingle = parseInt(txtSingle.value);
   
     let totalDouble = parseInt(txtDouble.value);
@@ -150,6 +117,8 @@ function calculateRoomCost(){
     let extraBeds = parseInt(txtBed.value);
 
     let MealPrice = parseInt(txtChildren.value);
+
+    let numAdult = parseInt(txtAdult.value);
 
    
     
@@ -164,6 +133,7 @@ function calculateRoomCost(){
     let moreExtraBeds = extraBeds * bedprice;
 
     let totalDays = (new Date(txtCheckOut.value) - new Date(txtCheckIn.value)) / (24 * 60 * 60 * 1000);
+    
 
    
 
@@ -215,6 +185,84 @@ function gettingExtraRequirements(){
         requirements.push(checkbox.id);
     }})
     return requirements.join(',');
+}
+function validateRoomInputs() {
+    if (!(fullName.value && contact.value && mail.value && txtCheckIn.value && txtCheckOut.value)) {
+        alert("Please fill out all the required fields");
+    }
+    
+    
+    
+    else if(!(parseInt(txtSingle.value) || parseInt(txtDouble.value) || parseInt(txtTriple.value))) {
+        alert("Select at least one type of room to book.");
+    } 
+    else if(parseInt(txtSingle.value)>10 || parseInt(txtDouble.value)>10 || parseInt(txtTriple.value)>10) {
+        alert("Please make sure to have at maximum number of rooms is 10");
+    } 
+    else if (parseInt(txtAdult.value) > 100 || parseInt(txtChildren.value) > 100) {
+        alert("Please make sure to have at maximum number of adults and kids is 100");
+    }
+    
+    
+    else if (parseInt(txtAdult.value) < 1) {
+        alert("Please make sure to have at least one adult for your booking");
+    }
+   
+    
+    else{
+        
+        // Calculate the room cost and update the current room booking
+        calculateRoomCost();
+        updateCurrentRoomBooking();
+            
+        // Update the overall booking details
+        updateOverallBookingDetails();
+               
+    
+            // Clear the form
+        roomElement.reset();
+    
+        txtroomCost.innerHTML = '';
+        alert(`Your booking successfully done,
+        \t Thank You For Booking With us! `);
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+btnRoom.addEventListener("click", updateoverAllRoomTable);
+
+function updateoverAllRoomTable(event) {
+    // Prevent the form from submitting and page reloading
+    event.preventDefault();
+    
+
+   
+  
+
+    // Check if the form is valid
+    if (roomElement.checkValidity()) {
+        
+        validateRoomInputs();
+        
+    
+
+       
+
+        
+
+        
+
+    }
 }
 
 
@@ -393,14 +441,29 @@ function gettingTourGuide(){
    
     
 }
-//adventure button functions
-btnadventure.addEventListener("click",updateOverallAdvenBooking);
 
-function updateOverallAdvenBooking(evtad){
 
-    evtad.preventDefault();
+function validateAdventureInputs() {
+    if(!((fullNameadventure.value)+(contactAdventure.value))){
+        alert(`please fill out the required fields`);
 
-    if(advenElement.checkValidity()){
+    }
+   
+    else if(!(parseInt(txtAdultLocal.value) || parseInt(txtChildLocal.value) || parseInt(txtAdultForiegn.value)|| parseInt(txtChildForiegn.value))) {
+        alert("please fill out one of the adult or children field in the resident or non-resident booking.");
+    } 
+    else if(parseInt(txtAdultLocal.value)>20 || parseInt(txtAdultForiegn.value)>20 || parseInt(txtChildLocal.value)>20|| parseInt(txtChildForiegn.value)>20) {
+        alert("Please make sure to have at maximum number of kids and adults is 20");
+    } 
+    else if ((parseInt(txtTimeForiegn.value)|| parseInt(txtTimeLocal.value))< 1) {
+        alert("please fill out one of the required time period field in the resident or non-resident booking.");
+    }
+    else if ((parseInt(txtTimeForiegn.value)>5 || parseInt(txtTimeLocal.value))>5) {
+        alert("Please make sure to have a maximum time period of 5 hours.");
+    }
+    
+    
+    else{
         calculateAdventureCost();
         gettingTourGuide();
         updateCurrentAdvenBooking();
@@ -434,6 +497,22 @@ function updateOverallAdvenBooking(evtad){
     document.getElementById("costtable").textContent = '';
         
 
+        
+   
+    }
+
+
+}
+//adventure button functions
+btnadventure.addEventListener("click",updateOverallAdvenBooking);
+
+function updateOverallAdvenBooking(evtad){
+
+    evtad.preventDefault();
+
+    if(advenElement.checkValidity()){
+        validateAdventureInputs();
+        
     }
 
     
