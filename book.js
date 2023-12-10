@@ -7,6 +7,7 @@ const childmeals = 5000;
 const bedprice = 8000;
 
 let roomCost;
+let hotelcost;
 let loyalpoint = 0;
 
 
@@ -35,18 +36,7 @@ const elementRoomInput = document.querySelectorAll("#roomsBooking input");
 txtCheckIn.min = new Date().toISOString().split("T")[0];
 txtCheckOut.min = new Date().toISOString().split("T")[0];
 
-//
-txtCheckIn.addEventListener('change', function() {
-    // Update the min attribute of check-out date based on check-in date
-    txtCheckOut.min = txtCheckIn.value;
-    
-    // Calculate the next day
-    const nextDay = new Date(txtCheckIn.value);
-    nextDay.setDate(nextDay.getDate() + 1);
 
-    // Set check-out date to one day after check-in date
-    txtCheckOut.valueAsDate = nextDay;
-  });
 
 
 // declaration for table
@@ -118,7 +108,6 @@ function calculateRoomCost(){
 
     let MealPrice = parseInt(txtChildren.value);
 
-    let numAdult = parseInt(txtAdult.value);
 
    
     
@@ -135,7 +124,7 @@ function calculateRoomCost(){
     let totalDays = (new Date(txtCheckOut.value) - new Date(txtCheckIn.value)) / (24 * 60 * 60 * 1000);
     
 
-   
+    hotelcost=(singleRoomCost+doubleRoomCost+tripleRoomCost)*totalDays
 
     roomCost = ((singleRoomCost+doubleRoomCost+tripleRoomCost)*totalDays)+(childrenFood)+(moreExtraBeds);
 
@@ -167,9 +156,13 @@ function updateCurrentRoomBooking(){
     txtroomCost.innerHTML=`
     <h3>Current Booking</h3>
     <p>Name: ${fullName.value}</p>
+    <p>Check-In: ${txtCheckIn.value}</p>
+    <p>Check-Out: ${txtCheckOut.value}</p>
     <p>No Of Single Rooms: ${txtSingle.value}</p>
     <p>No Of Double Rooms: ${txtDouble.value}</p>
     <p>No Of Triple Rooms: ${txtTriple.value}</p>
+    <p>No of Extra Beds: ${txtBed.value}</p>
+    <p>No of kids: ${txtChildren.value}</p>
     <p>Room Cost: ${roomCost}</p>
 
     `
@@ -197,15 +190,18 @@ function validateRoomInputs() {
         alert("Select at least one type of room to book.");
     } 
     else if(parseInt(txtSingle.value)>10 || parseInt(txtDouble.value)>10 || parseInt(txtTriple.value)>10) {
-        alert("Please make sure to have at maximum number of rooms is 10");
+        alert("Kindly ensure that the room count does not surpass a maximum of 10");
     } 
     else if (parseInt(txtAdult.value) > 100 || parseInt(txtChildren.value) > 100) {
-        alert("Please make sure to have at maximum number of adults and kids is 100");
+        alert(" Please confirm that the total number of adults and children does not exceed 100");
     }
     
     
     else if (parseInt(txtAdult.value) < 1) {
         alert("Please make sure to have at least one adult for your booking");
+    }
+    else if(hotelcost<1){
+        alert("please provide appropriate check in and check out date.")
     }
    
     
@@ -305,6 +301,8 @@ let guideCost = 0;
 let AdventureCost;
 let guideAdult="No";
 let guideChild="No";
+let LocalCost;
+let foriegnCost;
 
 
 
@@ -344,9 +342,9 @@ function calculateAdventureCost(){
 
     let timeDurationForiegn = parseInt(txtTimeForiegn.value);
 
-    let LocalCost = ((localAdult * divingLocalAdults) + (localKids * divingLocalchild)) * timeDuration;
+    LocalCost = ((localAdult * divingLocalAdults) + (localKids * divingLocalchild)) * timeDuration;
 
-    let foriegnCost = ((foriegnAdult * divingForiegnAdults) + (foriegnKids * divingForiegnchild)) * timeDurationForiegn;
+    foriegnCost = ((foriegnAdult * divingForiegnAdults) + (foriegnKids * divingForiegnchild)) * timeDurationForiegn;
 
     AdventureCost = LocalCost + foriegnCost;
 
@@ -380,6 +378,7 @@ tourguide.forEach(checkbox=>checkbox.addEventListener('change', gettingTourGuide
 
 // calculations to calculate the total adventure cost
 function gettingTourGuide(){
+    
 
 
     let localAdult = parseInt(txtAdultLocal.value);
@@ -425,6 +424,7 @@ function gettingTourGuide(){
         }
     }
 // current booking of adventure booking
+    calculateAdventureCost();
 
     AdventureCost= AdventureCost + guideCost;
     txtAdventureCost.innerHTML = `
@@ -453,15 +453,20 @@ function validateAdventureInputs() {
         alert("please fill out one of the adult or children field in the resident or non-resident booking.");
     } 
     else if(parseInt(txtAdultLocal.value)>20 || parseInt(txtAdultForiegn.value)>20 || parseInt(txtChildLocal.value)>20|| parseInt(txtChildForiegn.value)>20) {
-        alert("Please make sure to have at maximum number of kids and adults is 20");
+        alert("Kindly ensure that the maximum number of kids and adults does not exceed 20");
     } 
     else if ((parseInt(txtTimeForiegn.value)|| parseInt(txtTimeLocal.value))< 1) {
         alert("please fill out one of the required time period field in the resident or non-resident booking.");
     }
     else if ((parseInt(txtTimeForiegn.value)>5 || parseInt(txtTimeLocal.value))>5) {
-        alert("Please make sure to have a maximum time period of 5 hours.");
+        alert("Ensure that the maximum time duration does not exceed 5 hours");
     }
     
+    else if ((LocalCost +foriegnCost )< 1) {
+        alert("Please make sure you given in the correct details in the resident or non-resident booking.");
+    }
+
+   
     
     else{
         calculateAdventureCost();
